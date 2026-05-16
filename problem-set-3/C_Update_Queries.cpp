@@ -16,23 +16,22 @@ int main() {
         cin >> s;
 
         vector<int> ind(m);
+
         for (int i = 0; i < m; i++) {
             cin >> ind[i];
+            ind[i]--; 
         }
 
         string c;
         cin >> c;
 
-        // Keep only unique indices
         sort(ind.begin(), ind.end());
         ind.erase(unique(ind.begin(), ind.end()), ind.end());
 
-        // Sort characters
         sort(c.begin(), c.end());
 
-        // Assign smallest chars to smallest indices
         for (int i = 0; i < ind.size(); i++) {
-            s[ind[i] - 1] = c[i];
+            s[ind[i]] = c[i];
         }
 
         cout << s << '\n';
@@ -40,3 +39,29 @@ int main() {
 
     return 0;
 }
+
+// input 
+// 4
+// 1 2
+// a
+// 1 1
+// cb
+// 4 4
+// meow
+// 1 2 1 4
+// zcwz
+// 7 4
+// abacaba
+// 1 3 5 7
+// damn
+// 7 10
+// traktor
+// 7 6 5 4 3 2 1 6 4 2
+// codeforces
+
+//output
+
+// b
+// cwoz
+// abdcmbn
+// ccdeefo
